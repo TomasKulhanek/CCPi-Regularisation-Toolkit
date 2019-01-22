@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # detect CIL_VERSION, if not specified by calling script, determine from git tag and number of commits after
+
 if [[ -n ${CIL_VERSION} ]]
 then
   echo Using defined version: $CIL_VERSION
