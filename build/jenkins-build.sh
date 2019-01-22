@@ -54,6 +54,7 @@ echo files created: $REG_FILES
 
 if [[ -n ${CCPI_CONDA_TOKEN} ]]; then
   if [[ ${GIT_BRANCH} == "master" ]]; then
+
     conda install anaconda-client
     while read -r outfile; do
       #if >0 commit (some _ in version) then marking as dev build
@@ -64,6 +65,7 @@ if [[ -n ${CCPI_CONDA_TOKEN} ]]; then
         anaconda -v -t ${CCPI_CONDA_TOKEN}  upload $outfile --force
       fi
     done <<< "$REG_FILES"
+    
   else
     echo git branch is not master, will not upload to anaconda.
   fi
