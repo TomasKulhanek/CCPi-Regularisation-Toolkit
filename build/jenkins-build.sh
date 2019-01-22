@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# detect CIL_VERSION, if not specified by calling script, determine from git tag and number of commits after
 if [[ -n ${CIL_VERSION} ]]
 then
   echo Using defined version: $CIL_VERSION
@@ -17,9 +18,6 @@ else
     echo Building release version: $CIL_VERSION
   fi
 fi
-
-# Script to builds source code in Jenkins environment
-# module try-load conda
 
 # install miniconda if the module is not present
 if hash conda 2>/dev/null; then
@@ -65,7 +63,7 @@ if [[ -n ${CCPI_CONDA_TOKEN} ]]; then
         anaconda -v -t ${CCPI_CONDA_TOKEN}  upload $outfile --force
       fi
     done <<< "$REG_FILES"
-    
+
   else
     echo git branch is not master, will not upload to anaconda.
   fi
