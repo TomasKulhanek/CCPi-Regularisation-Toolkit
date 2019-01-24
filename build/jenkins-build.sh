@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Copyright 2019 Tomas Kulhanek, see /LICENSE
-
 # Universal script to build CCPi module libraries
 #
 # These environment variables can be specified optionally
